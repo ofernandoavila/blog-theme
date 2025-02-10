@@ -25,7 +25,7 @@ export function Page() {
     if(!page) return <BasicView></BasicView>;
 
     return (
-        <BasicView>
+        <BasicView active={ pathname.slice(1, pathname.length) }>
             <div className="container" dangerouslySetInnerHTML={{ __html: page.content }}></div>
         </BasicView>
     );

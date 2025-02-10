@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { WPService } from "../../services/WPService";
 import { BasicView } from "../../components/basic-view/BasicView";
-import { PostContent, PostSection } from 'avilalab-elements';
-import { Post as PostType } from "../../models/Post";
+import { Post as PostModel } from "../../models/Post";
+import { Post } from "../../components/post/Post";
 
-export function Post() {
-    const [post, setPost] = useState<PostType | null>(null);
+import './_Post.scss';
+
+export function PostPage() {
+    const [post, setPost] = useState<PostModel | null>(null);
     const [postTopics, setPostTopics] = useState<{title: string; anchor: string;}[]>([]);
     const [postLoaded, setPostLoaded] = useState(false);
     const { slug } = useParams();
@@ -37,24 +39,16 @@ export function Post() {
 
     }, [postLoaded]);
 
-    if(!post) return <BasicView></BasicView>;
+    if(!post) return <BasicView active=""></BasicView>;
 
     return (
-        <BasicView>
-            <div className="container">
+        <BasicView active="">
+            <div className="post-container container">
                 <div className="row">
                     <div className="col-4">
-                        <PostSection
-                            topics={ postTopics }
-                        />
                     </div>
                     <div className="col-8">
-                        <PostContent
-                            postThumbnailUrl={ post.thumbnail_url }
-                            postPublishDate={ post.date }
-                            postTitle={ post.title }
-                            postContent={ post.content }
-                        />
+                        <Post post={ post } />
                     </div>
                 </div>
             </div>

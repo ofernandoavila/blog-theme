@@ -9,7 +9,7 @@ export function Home() {
     }, []);
 
     return (
-        <BasicView>
+        <BasicView active="Home">
             <h1>{ location.pathname }</h1>
         </BasicView>
     );

@@ -9,7 +9,7 @@ export class WPService {
     
     constructor() {
         this.__axios = axios.create({
-            baseURL: import.meta.env.VITE_APP_WP_API_BASE_URL
+            baseURL: import.meta.env.VITE_APP_WP_BASE_URL
         });
     }
 

@@ -1,0 +1,12 @@
+@media only screen and (min-width: 360px) and (max-width: 430px) {
+    .post-container {
+        .col-4 {
+            display: none;
+        }
+
+        .col-8 {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

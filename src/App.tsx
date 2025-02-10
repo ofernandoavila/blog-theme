@@ -1,27 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Post } from "./pages/post/Post";
+import { PostPage } from "./pages/post/PostPage";
 import { Blog } from "./pages/Blog";
 import GlobalContextProvider from "./contexts/GlobalContext";
 import { Login } from "./pages/auth/Login";
 import { Page } from "./pages/Page";
+import { ModalContextProvider, ThemeContextProvider } from 'avilalab-elements';
 
 function App() {
     return (
         <BrowserRouter basename="/">
             <GlobalContextProvider>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/posts/:slug" element={<Post />} />
+                <ThemeContextProvider>
+                    <ModalContextProvider>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/blog" element={<Blog />} />
+                            <Route path="/posts/:slug" element={<PostPage />} />
 
-                    <Route path="/auth/login" element={ <Login /> } />
+                            <Route path="/auth/login" element={ <Login /> } />
 
-                    <Route
-						path="*"
-						element={<Page />}
-					/>
-                </Routes>
+                            <Route
+                                path="*"
+                                element={<Page />}
+                                />
+                        </Routes>
+                    </ModalContextProvider>
+                </ThemeContextProvider>
             </GlobalContextProvider>
         </BrowserRouter>
     );

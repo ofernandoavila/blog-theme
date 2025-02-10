@@ -1,5 +1,8 @@
-@use '../../node_modules/avilalab-elements/dist/avilalab-elements.css';
+@use '../../node_modules/avilalab-elements/src/scss/global.scss' as *;
+@use 'variables' as *;
 @use 'mobile';
+@use './post/post';
+@use './menu/main-menu';
 
 * {
     box-sizing: border-box;
@@ -12,11 +15,6 @@ a {
 
 main {
     flex-grow: 1;
-}
-
-header {
-    height: fit-content;
-    padding: 8px 24px;
 }
 
 .back-to-site {
