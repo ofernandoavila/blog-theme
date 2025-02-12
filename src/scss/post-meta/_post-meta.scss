@@ -1,0 +1,17 @@
+@use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
+
+.post-meta {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid $primary;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-author, &-categories {
+        b {
+            margin-right: 8px;
+        }
+    }
+}

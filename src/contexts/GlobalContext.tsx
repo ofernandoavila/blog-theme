@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useRef, useState } from "react";
-import { WPService } from "../services/WPService";
 import { useLocation } from "react-router-dom";
+import { get_settings } from "../services/WPService";
 
 export interface MenuItem {
     title: string;
@@ -19,7 +19,6 @@ export interface SiteSettings {
 export interface GlobalContextData {
     lastRoute: string | null;
     site: SiteSettings;
-    wp_service: WPService;
 }
 
 export interface GlobalContextProps {
@@ -30,7 +29,6 @@ export const globalContext = createContext({} as GlobalContextData);
 
 export default function GlobalContextProvider({ children }: GlobalContextProps) {
     const [site, setSite] = useState<SiteSettings | null>(null);
-    const [wp_service] = useState<WPService>(new WPService());
     const lastRoute = useRef<string | null>(null);
 
     const { pathname } = useLocation();
@@ -40,10 +38,10 @@ export default function GlobalContextProvider({ children }: GlobalContextProps) 
     }, [pathname]);
     
     useEffect(() => {
-        wp_service.get_settings().then( data => setSite(data));
+        get_settings().then( data => setSite(data) );
     }, []);
 
     if(!site) return <></>;
 
-    return <globalContext.Provider value={{ lastRoute: lastRoute.current, site, wp_service }}>{ children }</globalContext.Provider>
+    return <globalContext.Provider value={{ lastRoute: lastRoute.current, site }}>{ children }</globalContext.Provider>
 }

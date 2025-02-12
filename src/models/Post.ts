@@ -1,4 +1,5 @@
 import { Author } from "./Author";
+import { Category, CategoryDTO, MapCategories, MapCategory } from "./Category";
 import { FeaturedMedia } from "./FeaturedMedia";
 import { RenderedField } from "./types";
 
@@ -26,6 +27,7 @@ export interface PostDTO {
     "_embedded"?: {
         "wp:featuredmedia"?: FeaturedMedia[];
         "author"?: Author[];
+        "wp:term"?: [ CategoryDTO[] ];
     };
 }
 
@@ -43,13 +45,12 @@ export interface Post {
     thumbnail_url?: string;
     comment_status: PostCommentStatus;
     tags: string[];
-    categories: number[];
+    categories: Category[];
 }
 
 export const MapPost = (data: PostDTO) : Post => {
     let post: Partial<Post> = {
         id: data.id,
-        categories: data.categories,
         comment_status: data.comment_status,
         content: data.content.rendered,
         date: data.date,
@@ -73,6 +74,10 @@ export const MapPost = (data: PostDTO) : Post => {
 
     if(data._embedded?.["wp:featuredmedia"]) {
         post.thumbnail_url = data._embedded?.["wp:featuredmedia"][0].link;
+    }
+
+    if(data._embedded?.["wp:term"]) {
+        post.categories = MapCategories(data._embedded?.["wp:term"][0]);
     }
 
     return post as Post;

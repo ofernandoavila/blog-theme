@@ -6,29 +6,36 @@ import GlobalContextProvider from "./contexts/GlobalContext";
 import { Login } from "./pages/auth/Login";
 import { Page } from "./pages/Page";
 import { ModalContextProvider, ThemeContextProvider } from 'avilalab-elements';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient();
 
 function App() {
     return (
-        <BrowserRouter basename="/">
-            <GlobalContextProvider>
-                <ThemeContextProvider>
-                    <ModalContextProvider>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/blog" element={<Blog />} />
-                            <Route path="/posts/:slug" element={<PostPage />} />
+        <QueryClientProvider client={ queryClient }>
+            <BrowserRouter basename="/">
+                <GlobalContextProvider>
+                    <ThemeContextProvider>
+                        <ModalContextProvider>
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/blog" element={<Blog />} />
+                                <Route path="/posts/:slug" element={<PostPage />} />
 
-                            <Route path="/auth/login" element={ <Login /> } />
+                                <Route path="/auth/login" element={ <Login /> } />
 
-                            <Route
-                                path="*"
-                                element={<Page />}
-                                />
-                        </Routes>
-                    </ModalContextProvider>
-                </ThemeContextProvider>
-            </GlobalContextProvider>
-        </BrowserRouter>
+                                <Route
+                                    path="*"
+                                    element={<Page />}
+                                    />
+                            </Routes>
+                        </ModalContextProvider>
+                    </ThemeContextProvider>
+                </GlobalContextProvider>
+            </BrowserRouter>
+            <ReactQueryDevtools />
+        </QueryClientProvider>
     );
 }
 
