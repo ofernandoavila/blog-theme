@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BasicView } from "../../components/basic-view/BasicView";
-import { Post as PostModel } from "../../models/Post";
 import { Post } from "../../components/post/Post";
-
-import './_Post.scss';
-import { PostMeta } from "../../components/post-meta/PostMeta";
 import { useQuery } from "@tanstack/react-query";
 import { get_post } from "../../services/WPService";
+import { PostWidgets } from "../../components/post-widgets/PostWidgets";
+
+import './_Post.scss';
 
 export function PostPage() {
     const { slug } = useParams();
@@ -26,7 +24,7 @@ export function PostPage() {
             <div className="post-container container">
                 <div className="row">
                     <div className="col-4">
-                        <PostMeta post={ data } />
+                        <PostWidgets post={data} status={ status } />
                     </div>
                     <div className="col-8">
                         <Post post={ data } />
