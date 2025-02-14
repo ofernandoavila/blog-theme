@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BasicView } from "../../components/basic-view/BasicView";
 import { Post } from "../../components/post/Post";
 import { useQuery } from "@tanstack/react-query";
@@ -21,6 +21,15 @@ export function PostPage() {
 
     return (
         <BasicView active="">
+            <div className="container">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item"><Link to="/blog">Blog</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">{ data.title }</li>
+                    </ol>
+                </nav>
+            </div>
             <div className="post-container container">
                 <div className="row">
                     <div className="col-4">

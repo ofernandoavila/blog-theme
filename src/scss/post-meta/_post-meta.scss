@@ -1,17 +1,60 @@
 @use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
 
-.post-meta {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid $primary;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.breadcrumb-item {
+    &.active {
+        color: $primary;
+    }
+}
 
-    &-author, &-categories {
-        b {
-            margin-right: 8px;
+.post-meta {
+    .post-meta-container {
+        padding: 32px;
+        border: 1px solid $primary;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    h3 {
+        margin-bottom: 32px;
+
+        i {
+            color: $gold;
+        }
+    }
+
+    i {
+        color: $primary;
+        margin-right: 16px;
+    }
+
+    b {
+        margin-right: 16px;
+    }
+
+    
+
+    &-categories {
+        display: flex;
+
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            li {
+                list-style: none;
+
+                a {
+                    color: $primary;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
     }
 }
