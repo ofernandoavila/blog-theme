@@ -4,7 +4,7 @@ import { MenuItem } from "../../contexts/GlobalContext";
 
 export interface MainMenuContentProps {
     menu: MenuItem[];
-    active: string;
+    active?: string;
 }
 
 export function MainMenuContent({ menu, active }: MainMenuContentProps) {

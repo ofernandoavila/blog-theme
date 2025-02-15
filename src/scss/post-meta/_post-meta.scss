@@ -6,6 +6,10 @@
     }
 }
 
+.fixed {
+    position: fixed;
+}
+
 .post-meta {
     .post-meta-container {
         padding: 32px;
@@ -41,7 +45,7 @@
         ul {
             padding: 0;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 8px;
 
             li {
@@ -60,19 +64,14 @@
 }
 
 .post-meta.loading {
-    .post-meta {
-        &-author, &-categories {
-            height: 10px;
-            background-color: #979797;
-            border-radius: 8px;
+    gap: 24px;
 
-            & > * {
-                display: none;
-            }
-        }
-
-        &-categories {
-            width: 50%;
-        }
+    .post-meta-author, .post-meta-updated > div, .post-meta-categories > div {
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(270deg,#6d6d6d,#b5b5b5,#444444);
+        background-size: 180% 180%;
+        animation: gradient-animation 1s ease infinite;
+        border-radius: 8px;
     }
 }

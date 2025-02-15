@@ -1,0 +1,10 @@
+header.loading {
+    .logo-placeholder {
+        width: 20%;
+        height: 8px;
+        background: linear-gradient(270deg,#6d6d6d,#b5b5b5,#444444);
+        background-size: 180% 180%;
+        animation: gradient-animation 1s ease infinite;
+        border-radius: 8px;
+    }
+}

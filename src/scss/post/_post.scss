@@ -38,6 +38,39 @@
     }
 }
 
+.post.loading {
+    
+    .post-header,
+    .post-title,
+    .post-publish-date,
+    .post-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .post-title > div,
+    .post-publish-date > div,
+    .post-content > div {
+        width: 80%;
+        height: 8px;
+        background: linear-gradient(270deg,#6d6d6d,#b5b5b5,#444444);
+        background-size: 180% 180%;
+        animation: gradient-animation 1s ease infinite;
+        border-radius: 8px;
+    }
+
+    .post-publish-date > div {
+        width: 40%;
+    }
+
+    .post-content {
+        margin-top: 48px;
+        gap: 8px;
+    }
+}
+
 @media only screen and (min-width: 360px) and (max-width: 430px) {
     
 }

@@ -1,6 +1,9 @@
 @use '../../node_modules/avilalab-elements/src/scss/global.scss' as *;
 @use 'variables' as *;
 @use 'mobile';
+@use './header/header';
+@use './post-card/posts-container';
+@use './post-card/post-card';
 @use './post/post';
 @use './post-meta/post-meta';
 @use './menu/main-menu';

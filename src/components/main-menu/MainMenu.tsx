@@ -3,7 +3,7 @@ import { MainMenuContent } from "./MainMenuContent";
 import { useGlobal } from "../../hooks/useGlobal";
 
 export interface MainMenuProps {
-    active: string;
+    active?: string;
 }
 
 export function MainMenu({ active }: MainMenuProps) {
