@@ -1,0 +1,15 @@
+@use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
+
+button.quick-search {
+    i {
+        font-size: 14px !important;
+        margin-right: 8px;
+        color: $primary;
+    }
+}
+
+.quick-search-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

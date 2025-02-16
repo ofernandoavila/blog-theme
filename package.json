@@ -12,7 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.66.0",
     "@types/prismjs": "^1.26.5",
-    "avilalab-elements": "^0.12.1",
+    "avilalab-elements": "^0.12.2",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "path": "^0.12.7",
