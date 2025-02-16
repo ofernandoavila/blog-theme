@@ -9,7 +9,26 @@ button.quick-search {
 }
 
 .quick-search-modal {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 16px;
+}
+
+.quick-seach-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    .form-group {
+        width: 25%;
+    }
+
+    button.quick-search {
+        i {
+            color: #fff;
+        }
+    }
 }
