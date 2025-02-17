@@ -1,0 +1,11 @@
+@use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
+
+.breadcrumb {
+    margin-bottom: 48px;
+
+    .breadcrumb-item {
+        &.active {
+            color: $primary;
+        }
+    }
+}

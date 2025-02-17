@@ -1,0 +1,13 @@
+@use '../../../../node_modules/avilalab-elements/src/scss/variables' as *;
+
+.search {
+    &-header {
+        padding: 64px 0px;
+        &-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+}

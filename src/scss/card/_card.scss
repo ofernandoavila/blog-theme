@@ -1,0 +1,25 @@
+@use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
+
+#blog-theme .card {
+    background-color: transparent;
+    border: none;
+    .card {
+        &-title {
+            margin-bottom: 32px;
+    
+            i {
+                color: $gold;
+                margin-right: 16px;
+            }
+        }
+
+        &-container {
+            padding: 32px;
+            border: 1px solid $primary;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+}

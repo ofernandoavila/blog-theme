@@ -1,11 +1,5 @@
 @use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
 
-.breadcrumb-item {
-    &.active {
-        color: $primary;
-    }
-}
-
 .fixed {
     position: fixed;
 }

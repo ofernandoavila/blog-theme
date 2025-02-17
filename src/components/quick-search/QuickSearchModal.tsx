@@ -1,5 +1,6 @@
-import { useModal, Text, Button } from "avilalab-elements";
+import { useModal } from "avilalab-elements";
 import { useEffect } from "react";
+import { QuickSearchForm } from "./QuickSearch";
 
 export function QuickSearchModal() {
     const { HandleCloseModal } = useModal();
@@ -14,18 +15,7 @@ export function QuickSearchModal() {
     return (
         <div className="quick-search-modal">
             <h3>Press 'ESC' to quit</h3>
-            <div className="quick-seach-wrapper">
-                <Text
-                    placeholder="Insert here your seach"
-                />
-                <Button 
-                    className="quick-search"
-                    color="primary"
-                >
-                    <i className="fa fa-search"></i>
-                    <span>Search</span>
-                </Button>
-            </div>
+            <QuickSearchForm callback={ HandleCloseModal } />
         </div>
     );
 } 

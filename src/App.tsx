@@ -8,6 +8,7 @@ import { Page } from "./pages/Page";
 import { ModalContextProvider, ThemeContextProvider } from 'avilalab-elements';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { SearchPage } from "./pages/search/SearchPage";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,8 @@ function App() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/blog" element={<Blog />} />
                                 <Route path="/posts/:slug" element={<PostPage />} />
+
+                                <Route path="/search/:search" element={ <SearchPage /> } />
 
                                 <Route path="/auth/login" element={ <Login /> } />
 

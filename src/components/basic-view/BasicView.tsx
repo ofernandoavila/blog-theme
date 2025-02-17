@@ -10,7 +10,7 @@ interface BasicViewProps {
 
 export function BasicView({ children, hideHeader, active }: BasicViewProps) {
     return (
-        <div className={`vh-100 d-flex flex-column`}>
+        <div id="blog-theme" className={`vh-100 d-flex flex-column`}>
             <Modal />
             <div className="container-fluid">
                 { hideHeader ? '' : <div className="container"><Header active={ active ?? '' } /></div> }
