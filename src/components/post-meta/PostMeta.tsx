@@ -11,7 +11,7 @@ export function PostMeta({ post }: PostMetaProps) {
     if(!post) return <PostMetaSkeleton />
 
     return (
-        <Card className="post-meta" title="Article Information">
+        <Card className="post-meta" title="Article Information" bordered>
             <div className="post-meta-author"><i className="fa fa-user"></i><b>Author:</b><span>{ post.author.name }</span></div>
             <div className="post-meta-updated"><i className="fa fa-user"></i><b>Updated:</b><span>{ DateToString(post.date) }</span></div>
             <div className="post-meta-categories"><i className="fa fa-tag"></i><b>Categories:</b><ul>{ post.categories.map( category => <li key={category.slug}><Link to={`/category/${category.slug}`}>{ category.name }</Link></li> ) }</ul></div>

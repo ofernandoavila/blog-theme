@@ -1,4 +1,4 @@
-import { Button, useAppTheme, useModal } from "avilalab-elements";
+import { Button, useAppTheme, useModal } from "@avilalab/elements";
 import { useNavigate } from "react-router-dom";
 import { MenuItem } from "../../contexts/GlobalContext";
 

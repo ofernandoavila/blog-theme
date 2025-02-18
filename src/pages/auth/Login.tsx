@@ -1,4 +1,4 @@
-import { Button, LoginForm, SignUpForm } from "avilalab-elements";
+import { Button, LoginForm, SignUpForm } from "@avilalab/elements";
 import { BasicView } from "../../components/basic-view/BasicView";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useGlobal } from "../../hooks/useGlobal";

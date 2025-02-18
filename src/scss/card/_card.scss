@@ -1,4 +1,4 @@
-@use '../../../node_modules/avilalab-elements/src/scss/variables' as *;
+@use '../../../node_modules/@avilalab/elements/src/scss/variables' as *;
 
 #blog-theme .card {
     background-color: transparent;
@@ -15,11 +15,15 @@
 
         &-container {
             padding: 32px;
-            border: 1px solid $primary;
-            border-radius: 16px;
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
+
+    }
+    
+    .card-bordered {
+        border: 1px solid $primary;
+        border-radius: 16px;
     }
 }

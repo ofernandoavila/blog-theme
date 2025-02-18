@@ -1,4 +1,4 @@
-import { Button, useModal } from "avilalab-elements";
+import { Button, useModal } from "@avilalab/elements";
 import { MainMenuContent } from "./MainMenuContent";
 import { useGlobal } from "../../hooks/useGlobal";
 

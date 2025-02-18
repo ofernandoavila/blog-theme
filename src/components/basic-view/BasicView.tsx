@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "../header/Header";
-import { Modal } from "avilalab-elements";
+import { Modal } from "@avilalab/elements";
 
 interface BasicViewProps {
     hideHeader?: boolean;

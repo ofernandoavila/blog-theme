@@ -4,6 +4,7 @@ interface CardProps {
     title?: string;
     children?: ReactNode;
     className?: string;
+    bordered?: boolean;
 }
 
 interface CardSkeletonProps {
@@ -12,14 +13,15 @@ interface CardSkeletonProps {
 }
 
 export function Card({
+    bordered = false,
     children,
+    className,
     title,
-    className
 }: CardProps) {
     return (
         <div className={`card ${className}`}>
             { title ? <h3 className="card-title"><i className="fa-solid fa-bolt"></i>{ title }</h3> : '' }
-            <div className="card-container">{ children }</div>
+            <div className={`card-container ${ bordered ? 'card-bordered' : '' }`}>{ children }</div>
         </div>
     );
 }

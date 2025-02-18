@@ -1,5 +1,5 @@
 import { useGlobal } from "../../hooks/useGlobal";
-import { Header as HeaderElement } from 'avilalab-elements';
+import { Header as HeaderElement } from '@avilalab/elements';
 import { MainMenu } from "../main-menu/MainMenu";
 import { QuickSearch } from "../quick-search/QuickSearch";
 

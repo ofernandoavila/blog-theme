@@ -1,6 +1,5 @@
-import { Button, Text, useModal } from "avilalab-elements";
+import { Button, Text, useModal } from "@avilalab/elements";
 import { QuickSearchModal } from "./QuickSearchModal";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export function QuickSearch() {
@@ -18,13 +17,12 @@ export function QuickSearch() {
 }
 
 interface QuickSearchFormProps {
-    callback?: () => void;
+    callback?: (term: string) => void;
 }
 
 export function QuickSearchForm({
     callback
 }: QuickSearchFormProps) {
-    const navigate = useNavigate();
     const [search, setSearch] = useState<string>('');
 
     const HandleSearch = (e: any) => {
@@ -32,14 +30,13 @@ export function QuickSearchForm({
 
         if(search == '') return;
 
-        if(callback) callback();
-        return navigate('/search/' + search );
+        if(callback) return callback(search);
     };
 
     return (
         <div className="quick-seach-form">
             <Text
-                placeholder="Insert here your seach"
+                placeholder="Insert here your search"
                 value={ search }
                 setValue={ setSearch }
             />
