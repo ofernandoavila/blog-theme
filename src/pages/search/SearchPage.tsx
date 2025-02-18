@@ -12,23 +12,30 @@ import { Pagination } from "../../components/pagination/Pagination";
 
 export function SearchPage() {
     const location = useLocation();
+
+    const [page, setPage] = useState<number>(1);
+    const [totalPages, setTotalPages] = useState(1);
+    
+    const [perPage, setPerPage] = useState<number>(1);
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
     const [term, setTerm] = useState(() => {
         const params = new URLSearchParams(location.search);
         return decodeURIComponent(params.get('q') || '');
     });
-    const [page, setPage] = useState<number>(1);
-    const [categories, setCategories] = useState<Category[]>([]);
-    const [totalPages, setTotalPages] = useState(1);
-    const [posts, setPosts] = useState<Post[]>([]);
-    
     const { data, status } = useQuery({
-        queryKey: ['search', term, page],
-        queryFn: () => search_posts(term, 1, page),
+        queryKey: ['search', term, page, perPage],
+        queryFn: () => search_posts(term, perPage, page),
         placeholderData: (prev) => prev
     });
 
     useEffect(() => {
+        setPage(1);
+    }, [term]);
+
+    useEffect(() => {
         setPosts(data?.data ?? []);
+        ExtractCategories(data?.data ?? []);
     }, [data?.data]);
 
     useEffect(() => {
@@ -51,11 +58,27 @@ export function SearchPage() {
         setCategories(tmp);
     }
     
-    useEffect(() => {
-        if(posts.length > 0) {
-            ExtractCategories(posts);
-        }
-    }, [posts]);
+    const HandleFilter = (filterCategories: Category[]) => {
+        let tmp = HandleFilterByCategory(filterCategories);
+        return setPosts(tmp);
+    }
+
+    const HandleFilterByCategory = (filterCategories: Category[]) => {
+        const tmp:Post[] = [];
+        filterCategories.map( category => {
+            data?.data.map( post => {
+                if(post.categories.includes(category) && !tmp.includes(post)) {
+                    tmp.push(post);
+                }
+            });
+        });
+
+        tmp.sort( (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+        if(tmp.length === 0) return data?.data ?? [];
+
+        return tmp;
+    }
 
     return (
         <BasicView>
@@ -71,7 +94,10 @@ export function SearchPage() {
                 <div className="row">
                     <div className="col-3">
                         { term !== '' ? (
-                            <SearchAside categories={categories} />
+                            <SearchAside 
+                                filter={ HandleFilter }
+                                categories={ categories }
+                            />
                         ) : '' }
                     </div>
                     <div className="col-9">

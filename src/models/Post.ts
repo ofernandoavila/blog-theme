@@ -33,7 +33,7 @@ export interface PostDTO {
 
 export interface Post {
     id: number;
-    date: string;
+    date: Date;
     slug: string;
     modified: string;
     type: PostType;
@@ -53,7 +53,7 @@ export const MapPost = (data: PostDTO) : Post => {
         id: data.id,
         comment_status: data.comment_status,
         content: data.content.rendered,
-        date: data.date,
+        date: new Date(data.date),
         excerpt: data.excerpt.rendered,
         link: data.link,
         modified: data.modified,
